@@ -1,0 +1,657 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1e; /* Updated to your color scheme */
+    color: white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adds space between the logo and text */
+}
+
+.logo-icon {
+    width: 50px;  /* Adjust size as needed */
+    height: 50px;
+    object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+}
+
+.header {
+    background-color: #3e2723;;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Hero Section with Coffee Background */
+.hero {
+    height: 80vh;
+    background: 
+      linear-gradient(to right, rgba(81, 39, 25, 0.293), rgba(93, 36, 18, 0.342)),
+      url('SF.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    animation: fadeIn 2s;
+}
+
+.hero2 {
+    height: 80vh;
+    background: 
+      linear-gradient(to right, rgba(81, 39, 25, 0.293), rgba(93, 36, 18, 0.342)),
+      url('coffee.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    animation: fadeIn 2s;
+}
+
+.hero-content {
+    max-width: 80%;
+    font-size: 24px;
+}
+
+/* Popup Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Catalogue Section */
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item h3 {
+    margin: 10px 0;
+    color: #3e2723;
+}
+
+.item p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+
+.input-group {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .catalogue {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #3e2723;
+    text-align: center;
+    padding: 15px;
+    color: white;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons .icon {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons .icon:hover {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+/* Align Icons */
+.icon i {
+    line-height: 1;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: #3017037f; /* Adjust as needed */
+    padding: 10px 20px;
+    overflow: hidden; /* Ensures the navbar height remains stable */
+    border-radius: 40px;
+  }
+  
+  /* Links Styling */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: transform 0.3s, outline-color 0.3s;
+    outline: 2px solid transparent;
+    border-radius: 40px;
+  }
+  
+  .navbar a:hover {
+    transform: scale(1.1);
+    outline-color: #7d3e11;
+  }
+  
+  /* Search container on the right side */
+  .search-container {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  /* Input with 3D effect */
+  #searchInput {
+    width: 180px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  }
+  
+  #searchInput:focus {
+    transform: rotateX(10deg) translateZ(15px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+  }
+
+
+    /* Trending Button Styling */
+    .add-to-cart {
+        background-color: #6b411d; /* Coffee-brown color */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1em;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+    
+      /* Highlight effect on hover */
+      .add-to-cart:hover {
+        background-color: #a45815;
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+      }
+    
+      /* Shimmering Effect for Top Trending */
+      .add-to-cart::before {
+        content: 'Top Trending';
+        position: absolute;
+        top: -30%;
+        left: -50%;
+        width: 150%;
+        height: 200%;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transform: rotate(45deg);
+        transition: 0.7s;
+        opacity: 0;
+      }
+    
+      .add-to-cart:hover::before {
+        left: 120%;
+        opacity: 1;
+      }
+
+      .drawer {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 350px;
+        background-color: #3e2723e8;; /* Use a darker, coffee-inspired color for consistency */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000; /* Ensure the drawer stays on top */
+        border-bottom-left-radius: 30px;
+        border-top-left-radius: 30px;
+      }
+      
+      .drawer__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #3e2723;; /* Use a dark coffee color for the header */
+        color: #fff;
+        font-size: small;
+        border-top-left-radius: 30px;
+      }
+      
+      .drawer__title {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      
+      .drawer__close-button {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      
+      .drawer__close-button:hover {
+        color: #d48926; /* Change the text color on hover */
+        transform: scale(1.2); /* Slightly enlarge the button */
+      }
+      
+      
+      .drawer__inner {
+        padding: 15px;
+        background-color: #31190ad2; /* Same dark color as header for consistency */
+      }
+      
+      .drawer__scrollable {
+        overflow-y: auto;
+        max-height: calc(100vh - 150px);
+      }
+      
+      .drawer__item {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #c1bebe;
+      }
+      
+      .drawer__item-image {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+      
+      .drawer__item-details {
+        flex: 1;
+      }
+      
+      .drawer__item-name {
+        font-weight: bold;
+        margin: 0;
+      }
+      
+      .drawer__item-price {
+        color: #bbb; /* Lighter color for price text */
+      }
+      
+      .drawer__item-remove {
+        background: none;
+        border: none;
+        color: #df6f56;
+        cursor: pointer;
+      }
+      
+      .drawer__summary {
+        padding-top: 15px;
+        border-top: 1px solid #ddd;
+        text-align: right;
+        color: #fff; /* Make the summary text more visible */
+      }
+      
+      .drawer__total-label {
+        font-weight: bold;
+      }
+      
+      .drawer__checkout-button {
+        width: 75%;
+        padding: 10px;
+        margin-right: 30px;
+        margin-bottom: 20px;
+        background-color: #67370d; /* Coffee-brown button color */
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      
+      .drawer__checkout-button:hover {
+        background-color: #b66e2f; /* Lighter hover color for the checkout button */
+        transform: scale(1.05); /* Slightly enlarge the button on hover */
+      }
+      
+      
+      .drawer--is-open {
+        transform: translateX(0); /* Show the drawer when open */
+      }
+      
+      .drawer__empty-text {
+        text-align: center;
+        font-size: 1.2em;
+        color: #888;
+      }
+      
+      /* Adjust z-index when the drawer is open */
+      .drawer--is-open ~ .catalogue {
+        z-index: 1; /* Ensure it stays behind the drawer */
+      }
+
+      h2 {
+        background-color: #3e2723d1; /* Coffee color */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        border-radius: 26px;
+      }
+
+
+/* Top Seller Section */
+.top-seller {
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.section-title {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.top-seller-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+
+.item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-name {
+  margin: 15px 0;
+  color: #3e2723;
+  font-size: 1.2em;
+}
+
+.item-price {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 1em;
+  color: #ffcc00;
+}
+
+.review-form {
+  margin-top: 10px;
+}
+
+/* Buttons Section */
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.check-button,
+.comment-button {
+  padding: 8px 15px;
+  background-color: #3e2723;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.check-button:hover,
+.comment-button:hover {
+  background-color: #5e3e33;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.preloaded-comments p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.review-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.review-button {
+  padding: 8px 15px;
+  background-color: #3e2723;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.review-button:hover {
+  background-color: #5e3e33;
+}
+@media (max-width: 600px) {
+  .top-seller-items {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* User Information Section */
+.user-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.user-info h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1em;
+  color: #333;
+  margin: 10px 0 5px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+select {
+  cursor: pointer;
+}
+
+input[type="tel"], input[type="email"], input[type="text"] {
+  font-size: 1em;
+}
+
+/* Payment Methods Section */
+.payment-methods {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-methods h2 {
+  font-size: 1.8em;
+  color: #2b2b2b;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.payment-option img {
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.payment-btn {
+  padding: 12px 20px;
+  background-color: #264b27;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-btn:hover {
+  background-color: #31b65d;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1em;
+  color: #777;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+
+  .user-info, .payment-methods {
+      padding: 15px;
+  }
+
+  .payment-option {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .payment-option img {
+      margin-bottom: 10px;
+  }
+
+  .payment-btn {
+      width: 100%;
+  }
+}

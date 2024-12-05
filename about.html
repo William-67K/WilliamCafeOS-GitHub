@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique - Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styles */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('BG.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+
+    /* Header */
+    .header {
+        background-color: #3e2723;;
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        background-color: rgba(53, 26, 7, 0.51); /* Transparent background */
+        padding: 10px 20px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        display: inline-block;
+        transition: transform 0.3s, outline-color 0.3s;
+        outline: 2px solid transparent;
+        border-radius: 50px;
+    }
+
+    .navbar a:hover {
+        transform: scale(1.1);
+        outline-color: #7d3e11;
+    }
+
+    /* About Container */
+    .about-container {
+        text-align: center;
+        padding: 30px;
+        max-width: 600px;
+        margin-left: 435px; /* Add small margin for responsiveness */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        animation: fadeIn 1.2s;
+        background-color: rgba(41, 21, 5, 0.73); /* Semi-transparent background */
+        border-radius: 10px;
+    }
+
+        .about-container h2 {
+            margin-top: 10px;
+            font-size: 28px;
+            color: #af7359;;
+        }
+
+        .about-container p {
+            font-size: 16px;
+            color: #d5d5d5;
+        }
+
+        /* Toggle Buttons */
+        .toggle-container {
+            margin-top: 20px;
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            background-color: #4d270a;
+            color: white;
+        }
+
+        .toggle-button:hover {
+            background-color: #7d3e11;
+            transform: scale(1.05);
+        }
+
+        /* Form Containers */
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            background-color: #32190a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-container h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ae7c6a;;
+        }
+
+        .form-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #3c2b1b;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 50%;
+            padding: 10px;
+            background-color: #7d3e11;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #a75f2f;
+        }
+
+        .discount-message {
+            font-size: 14px;
+            color: #ffd54f;
+        }
+
+       /* Footer Styles */
+.footer {
+    background-color: #3e2723;
+    color: white;
+    padding: 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h4 {
+    padding-top: -15px;
+    color: #e4a63b;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #d5d5d5;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #ffd54f;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #a75f2f;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ffd54f;
+}
+
+.footer-bottom a {
+    color: #ffd54f;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.footer-bottom a:hover {
+    color: #a75f2f;
+}
+
+/* Alignment Styles */
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+
+        
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 style="font-size: 2.5em;">About</h1>
+        <nav class="navbar">
+        <a href="index.html">🏠︎Home</a>
+        <a href="coffee.html">☕︎Selection</a>
+        <a href="events.html">🗓️Events</a>
+        <a href="offers.html">🏷️Special Offers</a>
+        </nav>
+    </header>
+
+    <div class="about-container">
+        <h2>About Our Coffee Shop</h2>
+        <p>Experience the finest flavors and ambiance with us.</p>
+        <p>Sign up or sign in to receive special offers!</p>
+        
+        <div class="toggle-container">
+            <button class="toggle-button" onclick="showForm('signIn')">Sign In</button>
+            <button class="toggle-button" onclick="showForm('signUp')">Sign Up</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signIn" class="form-container active">
+            <h3>Sign In</h3>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button class="submit-btn">Sign In</button>
+            <p class="discount-message">Sign in now and get 30% off on your first order!</p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signUp" class="form-container">
+            <h3>Sign Up</h3>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Create Password">
+            <button class="submit-btn">Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <!-- Left-aligned Contact Information -->
+            <div class="footer-section left-align">
+                <h4>Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt"></i> Cham Mya Thar Si, Mandalay, Myanmar</p>
+                <p><i class="fa fa-phone-alt"></i> +95 941845005</p>
+                <p><i class="fa fa-envelope"></i> william567.mdy@gmail.com</p>
+            </div>
+
+            <!-- Center-aligned Social Links -->
+            <div class="footer-section center-align">
+                <h4>Follow Us</h4>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a> |
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a> |
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+
+            <!-- Right-aligned Open Hours -->
+            <div class="footer-section right-align">
+                <h4>Open Hours</h4>
+                <p>Monday - Friday: 8.00 AM - 8.00 PM</p>
+                <p>Saturday - Sunday: 2.00 PM - 8.00 PM</p>
+            </div>
+        </div>
+
+        <!-- Bottom footer text -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Bean Boutique. Designed by <a href="#">William Moe Thu</a>.</p>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script>
+        function showForm(formId) {
+            document.getElementById('signIn').classList.remove('active');
+            document.getElementById('signUp').classList.remove('active');
+            document.getElementById(formId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

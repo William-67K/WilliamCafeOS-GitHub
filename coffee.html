@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <title>Bean Boutique - Coffee Selection</title>
+
+  <body>
+    <header class="header">
+      <h1 style="font-size: 2.5em;">Coffee Selection</h1>
+      
+      <nav class="navbar">
+        <a href="index.html">🏠︎Home</a>
+        <a href="events.html">🗓️Events</a>
+        <a href="offers.html">🏷️Special Offers</a>
+        <a href="about.html">🛈Sign In</a>
+        <a href="#cartpage" id="cartIcon" onclick="toggleCart()">🛒</a>
+    
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search coffee˖⌕ ۫ . . .">
+        </div>
+      </nav>
+    </header>
+    
+  
+    <!-- Cart Drawer -->
+    <div id="CartDrawer" class="drawer">
+      <form action="/cart" method="post" novalidate class="drawer__contents">
+        <!-- Drawer Header -->
+        <div class="drawer__header">
+          <h3 class="drawer__title">Your 🛒</h3>
+          <button type="button" class="drawer__close-button" id="closeCartDrawer" onclick="toggleCart()">
+            <span aria-hidden="true" class="drawer__close-icon">×</span>
+            <span class="sr-only">Close</span>
+          </button>
+        </div>
+  
+        <!-- Cart Items Container -->
+        <div id="CartContainer" class="drawer__inner">
+          <div id="cartContent" class="drawer__scrollable">
+            <!-- Empty Cart Message -->
+            <div id="emptyCartMessage" class="drawer__empty-text">
+              <p>Your cart is currently empty. Start shopping to fill it up!</p>
+            </div>
+  
+            <!-- Cart Items (Dynamically Added) -->
+            <div id="cartItems" class="drawer__items">
+              <!-- Example Item -->
+              <!-- More items will be dynamically inserted here using JavaScript -->
+            </div>
+  
+            <!-- Cart Summary -->
+            <div class="drawer__summary">
+              <p class="drawer__total-label">Total:</p>
+              <p id="totalAmount" class="drawer__total-amount">$0.00</p>
+              <button type="button" class="drawer__checkout-button" onclick="redirectToProcess()">Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <h2>Coffee Selection</h2>
+    <section class="catalogue" id="coffeeCatalogue">
+    <div class="item coffee-item" data-id="10" data-name="Caramel Macchiato" data-notes="Sweet, Creamy" data-price="$16.49" data-image="Caramel Macchiato.jpg">
+      <img src="Caramel Macchiato.jpg" alt="Caramel Macchiato">
+      <h3>Caramel Macchiato</h3>
+      <p>Notes: Sweet, Creamy</p>
+      <p>Price: $16.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="11" data-name="Pumpkin Spice" data-notes="Spicy, Sweet" data-price="$17.99" data-image="Pumpkin Spice.jpg">
+      <img src="Pumpkin Spice.jpg" alt="Pumpkin Spice">
+      <h3>Pumpkin Spice</h3>
+      <p>Notes: Spicy, Sweet</p>
+      <p>Price: $17.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="12" data-name="Chai Latte" data-notes="Spicy, Sweet" data-price="$14.49" data-image="Chai Latte.jpg">
+      <img src="Chai Latte.jpg" alt="Chai Latte">
+      <h3>Chai Latte</h3>
+      <p>Notes: Spicy, Sweet</p>
+      <p>Price: $14.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="13" data-name="Irish Cream" data-notes="Creamy, Sweet" data-price="$16.99" data-image="Irish Cream.jpg">
+      <img src="Irish Cream.jpg" alt="Irish Cream">
+      <h3>Irish Cream</h3>
+      <p>Notes: Creamy, Sweet</p>
+      <p>Price: $16.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="14" data-name="Coconut Coffee" data-notes="Tropical, Sweet" data-price="$15.99" data-image="Coconut Coffee.jpg">
+      <img src="Coconut Coffee.jpg" alt="Coconut Coffee">
+      <h3>Coconut Coffee</h3>
+      <p>Notes: Tropical, Sweet</p>
+      <p>Price: $15.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="15" data-name="Raspberry Mocha" data-notes="Fruity, Chocolatey" data-price="$17.49" data-image="Raspberry Mocha.jpg">
+      <img src="Raspberry Mocha.jpg" alt="Raspberry Mocha">
+      <h3>Raspberry Mocha</h3>
+      <p>Notes: Fruity, Chocolatey</p>
+      <p>Price: $17.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="16" data-name="Blueberry Coffee" data-notes="Fruity, Sweet" data-price="$15.49" data-image="Blueberry Coffee.jpg">
+      <img src="Blueberry Coffee.jpg" alt="Blueberry Coffee">
+      <h3>Blueberry Coffee</h3>
+      <p>Notes: Fruity, Sweet</p>
+      <p>Price: $15.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="17" data-name="Tiramisu Coffee" data-notes="Rich, Creamy" data-price="$18.99" data-image="Tiramisu Coffee.jpg">
+      <img src="Tiramisu Coffee.jpg" alt="Tiramisu Coffee">
+      <h3>Tiramisu Coffee</h3>
+      <p>Notes: Rich, Creamy</p>
+      <p>Price: $18.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="8" data-name="Vanilla Latte" data-notes="Creamy, Sweet" data-price="$16.99" data-image="Vanilla Latte.jpg">
+      <img src="Vanilla Latte.jpg" alt="Vanilla Latte">
+      <h3>Vanilla Latte</h3>
+      <p>Notes: Creamy, Sweet</p>
+      <p>Price: $16.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="9" data-name="Mocha Madness" data-notes="Rich, Chocolatey" data-price="$15.49" data-image="Mocha Madness.jpg">
+      <img src="Mocha Madness.jpg" alt="Mocha Madness">
+      <h3>Mocha Madness</h3>
+      <p>Notes: Rich, Chocolatey</p>
+      <p>Price: $15.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="18" data-name="Lavender Latte" data-notes="Floral, Sweet" data-price="$16.49" data-image="Lavender Latte.jpg">
+      <img src="Lavender Latte.jpg" alt="Lavender Latte">
+      <h3>Lavender Latte</h3>
+      <p>Notes: Floral, Sweet</p>
+      <p>Price: $16.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="19" data-name="Pistachio Coffee" data-notes="Nutty, Sweet" data-price="$17.49" data-image="Pistachio Coffee.jpg">
+      <img src="Pistachio Coffee.jpg" alt="Pistachio Coffee">
+      <h3>Pistachio Coffee</h3>
+      <p>Notes: Nutty, Sweet</p>
+      <p>Price: $17.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="1" data-name="Dark Roast" data-notes="Chocolate, Nuts" data-price="$12.99" data-image="coffee1.jpg">
+      <img src="coffee1.jpg" alt="Coffee Blend 1">
+      <h3>Dark Roast</h3>
+      <p>Notes: Chocolate, Nuts</p>
+      <p>Price: $12.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="3" data-name="Colombian Blend" data-notes="Caramel, Apple" data-price="$13.99" data-image="Colombian Blend.jpg">
+      <img src="Colombian Blend.jpg" alt="Coffee Blend 3">
+      <h3>Colombian Blend</h3>
+      <p>Notes: Caramel, Apple</p>
+      <p>Price: $13.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="20" data-name="Hazelnut Delight" data-notes="Nutty, Creamy" data-price="$16.49" data-image="Hazelnut Delight.jpg">
+      <img src="Hazelnut Delight.jpg" alt="Hazelnut Delight">
+      <h3>Hazelnut Delight</h3>
+      <p>Notes: Nutty, Creamy</p>
+      <p>Price: $16.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    
+    <div class="item coffee-item" data-id="21" data-name="Peppermint Mocha" data-notes="Minty, Chocolatey" data-price="$17.99" data-image="Peppermint Mocha.jpg">
+      <img src="Peppermint Mocha.jpg" alt="Peppermint Mocha">
+      <h3>Peppermint Mocha</h3>
+      <p>Notes: Minty, Chocolatey</p>
+      <p>Price: $17.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+  </section>
+
+  <h2>Brewing Equipment</h2>
+  <section class="catalogue" id="equipmentCatalogue">
+
+    <div class="item coffee-item" data-id="20" data-name="Coffee Machine" data-notes="Brews perfect coffee" data-price="$89.99" data-image="Coffee Machine.jpg">
+      <img src="Coffee Machine.jpg" alt="Coffee Machine">
+      <h3>Coffee Machine</h3>
+      <p>Notes: Brews perfect coffee</p>
+      <p>Price: $89.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="21" data-name="Espresso Maker" data-notes="Makes rich espresso" data-price="$129.99" data-image="Espresso Maker.jpg">
+      <img src="Espresso Maker.jpg" alt="Espresso Maker">
+      <h3>Espresso Maker</h3>
+      <p>Notes: Makes rich espresso</p>
+      <p>Price: $129.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="22" data-name="French Press" data-notes="Classic brewing method" data-price="$29.99" data-image="French Press.jpg">
+      <img src="French Press.jpg" alt="French Press">
+      <h3>French Press</h3>
+      <p>Notes: Classic brewing method</p>
+      <p>Price: $29.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="23" data-name="Pour Over Coffee Maker" data-notes="For a precise brew" data-price="$39.99" data-image="Pour Over Coffee Maker.jpg">
+      <img src="Pour Over Coffee Maker.jpg" alt="Pour Over Coffee Maker">
+      <h3>Pour Over Coffee Maker</h3>
+      <p>Notes: For a precise brew</p>
+      <p>Price: $39.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="24" data-name="Cold Brew Maker" data-notes="For smooth cold coffee" data-price="$49.99" data-image="Cold Brew Maker.jpg">
+      <img src="Cold Brew Maker.jpg" alt="Cold Brew Maker">
+      <h3>Cold Brew Maker</h3>
+      <p>Notes: For smooth cold coffee</p>
+      <p>Price: $49.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="25" data-name="Siphon Coffee Maker" data-notes="Unique brewing experience" data-price="$99.99" data-image="Siphon Coffee Maker.jpg">
+      <img src="Siphon Coffee Maker.jpg" alt="Siphon Coffee Maker">
+      <h3>Siphon Coffee Maker</h3>
+      <p>Notes: Unique brewing experience</p>
+      <p>Price: $99.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="26" data-name="Coffee Grinder" data-notes="Grinds coffee to perfection" data-price="$49.99" data-image="Coffee Grinder.jpg">
+      <img src="Coffee Grinder.jpg" alt="Coffee Grinder">
+      <h3>Coffee Grinder</h3>
+      <p>Notes: Grinds coffee to perfection</p>
+      <p>Price: $49.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="27" data-name="Milk Frother" data-notes="Froths milk for lattes" data-price="$29.99" data-image="Milk Frother.jpg">
+      <img src="Milk Frother.jpg" alt="Milk Frother">
+      <h3>Milk Frother</h3>
+      <p>Notes: Froths milk for lattes</p>
+      <p>Price: $29.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="28" data-name="Aeropress" data-notes="Portable coffee maker" data-price="$29.99" data-image="Aeropress.jpg">
+      <img src="Aeropress.jpg" alt="Aeropress">
+      <h3>Aeropress</h3>
+      <p>Notes: Portable coffee maker</p>
+      <p>Price: $29.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="29" data-name="Moka Pot" data-notes="Stovetop espresso maker" data-price="$39.99" data-image="Moka Pot.jpg">
+      <img src="Moka Pot.jpg" alt="Moka Pot">
+      <h3>Moka Pot</h3>
+      <p>Notes: Stovetop espresso maker</p>
+      <p>Price: $39.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="30" data-name="Pour Over Kit" data-notes="Everything you need to brew" data-price="$49.99" data-image="Pour Over Kit.jpg">
+      <img src="Pour Over Kit.jpg" alt="Pour Over Kit">
+      <h3>Pour Over Kit</h3>
+      <p>Notes: Everything you need to brew</p>
+      <p>Price: $49.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="33" data-name="Travel Coffee Mug" data-notes="Take your coffee on the go" data-price="$19.99" data-image="Travel Coffee Mug.jpg">
+      <img src="Travel Coffee Mug.jpg" alt="Travel Coffee Mug">
+      <h3>Travel Coffee Mug</h3>
+      <p>Notes: Take your coffee on the go</p>
+      <p>Price: $19.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="34" data-name="Coffee Scoop" data-notes="Perfect measurement every time" data-price="$9.99" data-image="Coffee Scoop.jpg">
+      <img src="Coffee Scoop.jpg" alt="Coffee Scoop">
+      <h3>Coffee Scoop</h3>
+      <p>Notes: Perfect measurement every time</p>
+      <p>Price: $9.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="36" data-name="Iced Coffee Maker" data-notes="For refreshing cold coffee" data-price="$39.99" data-image="Iced Coffee Maker.jpg">
+      <img src="Iced Coffee Maker.jpg" alt="Iced Coffee Maker">
+      <h3>Iced Coffee Maker</h3>
+      <p>Notes: For refreshing cold coffee</p>
+      <p>Price: $39.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="37" data-name="Coffee Stencils" data-notes="Decorate your coffee" data-price="$14.99" data-image="Coffee Stencils.jpg">
+      <img src="Coffee Stencils.jpg" alt="Coffee Stencils">
+      <h3>Coffee Stencils</h3>
+      <p>Notes: Decorate your coffee</p>
+      <p>Price: $14.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="39" data-name="Coffee Mug Warmer" data-notes="Keeps your coffee warm" data-price="$29.99" data-image="Coffee Mug Warmer.jpg">
+      <img src="Coffee Mug Warmer.jpg" alt="Coffee Mug Warmer">
+      <h3>Coffee Mug Warmer</h3>
+      <p>Notes: Keeps your coffee warm</p>
+      <p>Price: $29.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="40" data-name="Barista Tool Set" data-notes="For coffee enthusiasts" data-price="$79.99" data-image="Barista Tool Set.jpg">
+      <img src="Barista Tool Set.jpg" alt="Barista Tool Set">
+      <h3>Barista Tool Set</h3>
+      <p>Notes: For coffee enthusiasts</p>
+      <p>Price: $79.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </section>
+
+
+
+  <h2>Coffee Packets</h2>
+  <section class="catalogue" id="packetsCatalogue">
+
+    <div class="item coffee-item" data-id="2" data-name="Single Origin Ethiopia" data-notes="Berries, Citrus" data-price="$14.99" data-image="ethiopia.jpg">
+      <img src="ethiopia.jpg" alt="Coffee Blend 2">
+      <h3>Single Origin Ethiopia</h3>
+      <p>Notes: Berries, Citrus</p>
+      <p>Price: $14.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="4" data-name="Espresso Roast" data-notes="Cocoa, Spice" data-price="$15.49" data-image="Espresso Roast.jpg">
+      <img src="Espresso Roast.jpg" alt="Coffee Blend 4">
+      <h3>Espresso Roast</h3>
+      <p>Notes: Cocoa, Spice</p>
+      <p>Price: $15.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="5" data-name="French Roast" data-notes="Smoky, Bold" data-price="$11.99" data-image="French Roast.jpg">
+      <img src="French Roast.jpg" alt="Coffee Blend 5">
+      <h3>French Roast</h3>
+      <p>Notes: Smoky, Bold</p>
+      <p>Price: $11.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="6" data-name="Decaf Delight" data-notes="Smooth, Subtle" data-price="$13.49" data-image="Decaf Delight.jpg">
+      <img src="Decaf Delight.jpg" alt="Coffee Blend 6">
+      <h3>Decaf Delight</h3>
+      <p>Notes: Smooth, Subtle</p>
+      <p>Price: $13.49</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div class="item coffee-item" data-id="7" data-name="Hazelnut Coffee" data-notes="Nutty, Sweet" data-price="$14.99" data-image="Hazelnut Coffee.jpg">
+      <img src="Hazelnut Coffee.jpg" alt="Hazelnut Coffee">
+      <h3>Hazelnut Coffee</h3>
+      <p>Notes: Nutty, Sweet</p>
+      <p>Price: $14.99</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 Bean Boutique. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
