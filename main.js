@@ -79,7 +79,7 @@ function loadCartItems() {
       itemElement.innerHTML = `
         <img src="${item.image}" alt="${item.name}" class="drawer__item-image">
         <div class="drawer__item-details">
-          <h4 class="drawer__item-name">${item.name}</h4>
+          <h3 class="drawer__item-name">${item.name}</h3>
           <p class="drawer__item-price">$${item.price.toFixed(2)}</p>
           <input type="number" min="1" class="drawer__item-quantity" value="${item.quantity}" 
                  onchange="updateQuantity('${item.id}', this.value)">
@@ -93,6 +93,17 @@ function loadCartItems() {
     document.getElementById('totalAmount').textContent = `$${totalPrice.toFixed(2)}`;
   }
 }
+
+function redirectToProcess() { 
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add items before proceeding to checkout.");
+  } else {
+    window.location.href = "process.html";
+  }
+}
+
 
 
 function updateQuantity(itemId, newQuantity) {
@@ -123,9 +134,6 @@ function removeFromCart(itemId) {
   loadCartItems();
 }
 
-
-
-
 // Add event listener for cart toggle
 document.getElementById("cartIcon").addEventListener("click", () => {
   document.getElementById("CartDrawer").classList.add("drawer--is-open");
@@ -137,14 +145,19 @@ document.getElementById("closeCartDrawer").addEventListener("click", () => {
 });
 
 
-function redirectToProcess() {
-  // Redirect to the process.html page
-  window.location.href = "process.html";
-}
+      // Redirect to coffee.html
+  function goToDetails() {
+      window.location.href = "coffee.html";
+  }
 
-
-
-
-
-
-
+  // Toggle comments visibility
+  function toggleComments(button) {
+      const commentsSection = button.parentElement.nextElementSibling;
+      if (commentsSection.style.display === "none") {
+          commentsSection.style.display = "block";
+          button.textContent = "Hide Comments";
+      } else {
+          commentsSection.style.display = "none";
+          button.textContent = "Comments";
+      }
+  }
